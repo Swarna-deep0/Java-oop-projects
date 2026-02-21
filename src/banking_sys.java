@@ -10,15 +10,16 @@ class bank {
    private int balance = 0;
    private final Lock lock = new ReentrantLock(true);
    public void deposit(int x){
+       System.out.println(Thread.currentThread().getName() + " is trying to deposit ");
        try{
-           if (lock.tryLock(1000, TimeUnit.MILLISECONDS))
+           if (lock.tryLock(2000, TimeUnit.MILLISECONDS))
                if (x<=0){
                    System.out.println("INVALID");
                }
                else {
                    try {
                        System.out.println(Thread.currentThread().getName() + " proceeding to deposit ");
-                       Thread.sleep(2000);
+                       Thread.sleep(1000);
                        balance += x;
                        System.out.println("you have balance : " + balance);
                    } catch (Exception e) {
@@ -49,24 +50,13 @@ class bank {
         }
         return balance;
     }
-
-    public long getAcc_no() {
-        return acc_no;
-    }
-
-    public void setAcc_no(long acc_no) {
-        this.acc_no = acc_no;
-    }
 }
 public class banking_sys {
     public static void main(String[] args) throws InterruptedException {
         test t1 = new test();
         Thread l1 = new Thread(t1,"KHUSI");
         Thread l2 = new Thread(t1,"DEEP");
-        l1.setPriority(Thread.MAX_PRIORITY);
-        l2.setPriority(Thread.MIN_PRIORITY );
         l1.start();
         l2.start();
-
     }
 }

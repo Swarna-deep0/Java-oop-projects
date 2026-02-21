@@ -17,7 +17,6 @@ public class SIP_calculator {
         while (valid) {
             try {
                 System.out.print("Enter your principle amount : ");
-
                 int pa = sc.nextInt();
                 System.out.print("Enter your CAGR : ");
                 int ir = sc.nextInt();

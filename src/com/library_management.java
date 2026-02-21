@@ -75,8 +75,8 @@ public class library_management {
         l1.addbook("reach and poor","david slingh");
         l1.addbook("Happy days","deep");
         l1.addbook("harry potter","jhonny waker");
-        l1.showbooks();
         l1.issuebooks("kuwait","hurray","rahul");
+        l1.showbooks();
 
     }
 }
