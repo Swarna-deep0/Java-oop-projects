@@ -32,6 +32,13 @@ public class DSA {
         rotate(num,k);
         System.out.println(Arrays.toString(num));
 
+        // Search an element in a Sorted & Rotated Array in java
+        int[]srr = {8,7,6,1,2,3,4,5};
+        int target = 8;
+        int s = search(srr, target);
+
+        if ( s != -1 ) System.out.println("Element found at index : " + s);
+        else System.out.println("element not found ");
     }
     public static void pattern(int n){
         for (int i = 1 ; i<=n ; i++){
@@ -96,5 +103,30 @@ public class DSA {
             start++;
             end--;
         }
+    }
+
+    public static int search (int[]srr , int target){
+        int start = 0;
+        int end = srr.length - 1;
+
+        while (start<=end){
+            int mid = (start + end)/2 ;
+
+            if (srr[mid] == target) return mid;
+
+            if (srr[start] < srr[mid]) {
+                if (target >=srr[start] && target <= srr[mid]) {
+                    end = mid -1;
+                }
+                else start = mid + 1;
+            }
+            else {
+                if (target >= srr[mid] && target <= srr[end]) {
+                    start = mid + 1;
+                }
+                else end = mid - 1;
+            }
+        }
+        return -1;
     }
 }
