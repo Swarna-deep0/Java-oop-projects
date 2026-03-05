@@ -13,6 +13,16 @@ public class DSA {
  
         // row wise number pattern print :
         pattern4(4);
+
+        // Binary search algo :
+        int[]arr = new int[6];
+        arr[0]=1;
+        arr[1]=0;
+        arr[2]=5;
+        arr[3]=7;
+        arr[4]=7;
+        arr[5]=9;
+        System.out.println(binarysearch(arr,7));
     }
     public static void pattern(int n){
         for (int i = 1 ; i<=n ; i++){
@@ -46,5 +56,17 @@ public class DSA {
             }
             System.out.println();
         }
+    }
+
+    public static int binarysearch(int[]arr,int x){
+        int s = 0; //starting
+        int l = arr.length - 1; //Ending
+        while (s<=l) {
+            int mid = (s + l) / 2;
+            if (arr[mid] == x) return mid;
+            else if (x > arr[mid]) s = mid + 1;
+            else l = mid - 1;
+        }
+        return -1;
     }
 }
