@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Arrays;
+
 public class DSA {
     public static void main(String[] args) {
         // Number pattern problem :
@@ -23,6 +25,13 @@ public class DSA {
         arr[4]=7;
         arr[5]=9;
         System.out.println(binarysearch(arr,7));
+
+        // rotated array : Rotate the array from right by k steps
+        int[]num = {1,2,3,4,5,6,7};
+        int k = 2;
+        rotate(num,k);
+        System.out.println(Arrays.toString(num));
+
     }
     public static void pattern(int n){
         for (int i = 1 ; i<=n ; i++){
@@ -68,5 +77,24 @@ public class DSA {
             else l = mid - 1;
         }
         return -1;
+    }
+
+    public static void rotate(int[]num , int k){
+        int n = num.length;
+        if (k > n) k = k % n ;
+        reverse(num,0,n-1);
+        reverse(num,0,k -1);
+        reverse(num,k,n-1);
+    }
+
+    public static void reverse(int[]num , int start , int end){
+        while (start < end){
+            int temp = num[start];
+            num[start] = num[end];
+            num[end] = temp;
+
+            start++;
+            end--;
+        }
     }
 }
