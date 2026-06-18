@@ -44,9 +44,9 @@ public class acc {
 class persons{
     public static void main(String[] args) {
         acc a1 = new acc();
-        Runnable task = ()-> a1.withdraw(101);
-        Thread t1 = new Thread(task,"sanjay");
-        Thread t2 = new Thread(task,"archana");
+//       Runnable task = ()-> a1.withdraw(101);
+        Thread t1 = new Thread(() -> a1.withdraw(100),"sanjay");
+        Thread t2 = new Thread(() -> a1.withdraw(100),"archana");
         t1.start();
         t2.start();
     }
