@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class acc {
     public int balance = 200;
-    private final Lock l1 = new ReentrantLock();
+    private final Lock l1 = new ReentrantLock(true);
     public void withdraw(int amt){
         System.out.println(Thread.currentThread().getName() + " attempting to withdraw : " + "RS." + amt);
         try {
