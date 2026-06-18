@@ -15,7 +15,7 @@ public class acc {
                     try{
                         System.out.println(Thread.currentThread().getName() + " processing to withdraw ");
                         try {
-                            Thread.sleep(1500);
+                            Thread.sleep(1001);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
